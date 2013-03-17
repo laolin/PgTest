@@ -1,0 +1,15 @@
+#py_btn  , #py_q
+{
+  height:50px;
+  width:100px;
+  font-size:1.6em;
+  margin:0px;
+  padding:0px;
+}
+.note {
+  color:green;
+  font-weight:800;
+}
+#info-box-main {
+  font-size:2em;
+}

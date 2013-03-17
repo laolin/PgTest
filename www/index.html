@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>LaoLin App</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <!-- Le styles -->
+    <link href="./css/bootstrap.min.css" rel="stylesheet">
+    <style type="text/css">
+      body {
+        padding-top: 60px;
+        padding-bottom: 40px;
+      }
+      .sidebar-nav {
+        padding: 9px 0;
+      }
+
+      @media (max-width: 980px) {
+        /* Enable use of floated navbar text */
+        .navbar-text.pull-right {
+          float: none;
+          padding-left: 5px;
+          padding-right: 5px;
+        }
+      }
+    </style>
+    <link href="./css/bootstrap-responsive.min.css" rel="stylesheet">
+
+    <script src="./js/jquery-1.8.0.min.js"></script>
+    <script src="./js/underscore-min.js"></script>
+    <script src="./js/backbone-min.js"></script>
+
+    
+
+    <!-- Fav and touch icons -->
+  </head>
+
+  <body>
+
+    <div class="navbar navbar-inverse navbar-fixed-top">
+      <div class="navbar-inner" id="opt-navbar-inner">
+      </div>
+    </div>
+
+    <div class="container-fluid">
+      <div class="row-fluid" id="opt-main-box">
+      </div><!--/row-->
+      <hr>
+      <footer>
+        <p>&copy; <a href='http://laolin.com'>LaoLin</a> 2013</p>
+      </footer>
+    </div><!--/.fluid-container-->
+    
+    <script src="./js/bootstrap.min.js"></script>
+    <script src="./js/laolin.main.js"></script>
+    <script src="./js/laolin.router.js"></script>
+     <script>
+      function set_top_nav(tdata) {
+        laolin.fn.template("#opt-navbar-inner","#tpl-opt-navbar-inner",tdata);
+      }
+      function set_main_box(htm) {
+        $('#opt-main-box').html(htm);
+      }
+    </script>
+    <script  type='text/template' id='tpl-opt-navbar-inner'>
+        <div class="container-fluid">
+          <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          
+          <a class="brand" href="#index/"><%= sitename %></a>
+          <div class="nav-collapse collapse">
+            <p class="navbar-text pull-right">
+              <%= appname %> 
+              <% if(loginfo)print( ' | ' + loginfo) %>
+            </p>
+            <ul class="nav">
+              <%  _.each(nav_items,function(item,key) { %>
+              <li><a href='<%= key %>'><%= item %></a></li>
+              <% }) ; %>
+            </ul>
+          </div>     
+        </div>
+      
+    </script> 
+    
+    <!-- not use: -->
+    <script type='text/template' id='tpl-opt-main-box'>
+     
+    </script> 
+    
+    <script src='apps/apps.js'>     </script> 
+    <script>
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-922595-7']);
+      _gaq.push(['_setDomainName', 'laolin.com']);
+      _gaq.push(['_setAllowLinker', true]);
+      _gaq.push(['_trackPageview']);
+
+      (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+      })();
+    </script>
+  </body>
+</html>
